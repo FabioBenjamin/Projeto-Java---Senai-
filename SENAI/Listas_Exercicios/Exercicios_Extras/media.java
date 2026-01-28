@@ -39,8 +39,8 @@ public class media {
         
         // Exibição dos valores
 
-        System.out.println("A soma dos valores: " + resultado);
-        System.out.println("A média dos valores: " + MediaFinal);
+        System.out.println("A soma dos valores: " + resultado); // Resposta: 39.0
+        System.out.println("A média dos valores: " + MediaFinal); // Resposta: 6.5
 
 
     }
