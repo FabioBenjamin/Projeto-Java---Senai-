@@ -7,29 +7,36 @@ public class Numero_Aleatorio {
 		Scanner aleatorio = new Scanner(System.in);
 		Random numeros = new Random();
 		
-		int numero = 0;
+		int numero = numeros.nextInt(10) + 1; // Gera um numero aleatorio de 1 a 10
 		int tentativas = 0;
-		
-		numero = numeros.nextInt(10) + 1; // Gera um numero aleatorio de 1 a 10
-		
+		int tentativaUsuario;
+		int tentativaMaxima = 5;
+
 		while (tentativas != numero) {
 			System.out.println("Digite um numero de 1 a 10");
-			tentativas = aleatorio.nextInt();
+			tentativaUsuario = aleatorio.nextInt();
 			tentativas++;
 			
-			if (tentativas < numero) {
+			if (tentativaUsuario < numero) {
 				System.out.println("Numero muito baixo, tente novamente");
-				
-			} else if (tentativas > numero) {
+
+			} else if (tentativaUsuario > numero) {
 				System.out.println("Numero muito alto, tente novamente");
-				
+
 			} else {
-				System.out.println("Numero Certo");
+				System.out.println("Numero Certo" + tentativas);
+				break;
 				
 			}
+
+			if (tentativas == tentativaMaxima) {
+				System.out.println("Excesso de tentativas, o número era: " + numero);
+			}
+
+			} 
+
+			aleatorio.close();
 			
-		}
-		
-		aleatorio.close();
 	}
 }
+
