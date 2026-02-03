@@ -4,7 +4,7 @@ import java.time.Duration;
 public class calcularTempoOperacao { 	    
 
     public static int calcularTempoOperacao(int dia, int hora){
-            return ((dia * 24 )+ hora);
+            return ((dia * hora);
         }
 
      public static void exibirAlerta(int dia, int hora) {
@@ -34,3 +34,4 @@ public class calcularTempoOperacao {
         trabalho.close();
         }
     }
+
