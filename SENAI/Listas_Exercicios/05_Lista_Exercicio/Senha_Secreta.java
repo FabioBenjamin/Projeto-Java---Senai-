@@ -6,7 +6,7 @@ public class Senha_Secreta {
 
         String senhaUsuario = "";
         String senhaGuard = "1234";
-        
+        int tentativas = 1;
         
         System.out.println("Digite sua senha: ");
         senhaUsuario = senha.next();
@@ -14,6 +14,12 @@ public class Senha_Secreta {
         while(!senhaGuard.equals(senhaUsuario)) {
         		System.out.println("Senha incorreta. Acesso negado");
         		senhaUsuario = senha.next();
+                        tentativas++; // Armazena as tentativas de senha 
+
+                        if (tentativas > 3){
+                                System.out.println("Excesso de tentivas, finalização do programa.");
+                                break;
+                }
         		
         		if(senhaGuard.equals(senhaUsuario)) {
         			System.out.println("Senha correta. Acesso permitido");
