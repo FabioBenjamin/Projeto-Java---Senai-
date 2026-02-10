@@ -1,144 +1,73 @@
-// Classes (Não usando no exercicio, mas serve)
-
-package Lista_Exercicio08;
-
-import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-// Metodos
+// Classe Filme
+class Filme {
 
-// Titulo do filme
-class titulo {
-    private String nomeFilme;
+    private String titulo;
+    private String genero;
+    private int duracao; // em minutos
+    private int anoLancamento;
+    private boolean disponivel;
 
-    public void setNomeFilme(String nome) { // Metodo camelcase
-        this.nomeFilme = nome;
+    // Construtor
+    public Filme(String titulo, String genero, int duracao, int anoLancamento, boolean disponivel) {
+        this.titulo = titulo;
+        this.genero = genero;
+        this.duracao = duracao;
+        this.anoLancamento = anoLancamento;
+        this.disponivel = disponivel;
     }
 
-    public String getNomeFilme() {
-        return nomeFilme;
-    }
-}
-
-// Descrição
-class getDescricao { // Metodo get
-    private String descricao;
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getDescricao() {
-        return this.descricao;
-    }
-}
-
-// Genero
-class genero {
-    private List<String> generos; // Lista para genero de filme
-
-    public genero() {
-        this.generos = new ArrayList<>();
-    }
-
-    // Adicionar genero
-    public void adicicaoGenero(String genero) {
-        this.generos.add(genero);
-    }
-
-    public List<String> getGeneros() {
-        return generos;
-    }
-}
-
-// Duração
-class duracao {
-    private Duration duracao; // Tempo do filme (h em min)
-
-    public duracao(int min) {
-        this.duracao = Duration.ofMinutes(min);
-    }
-
-    // Formatação da duração
-    public String getDuracaoFilmeFormatada() {
-        long horas = duracao.toHours();
-        long minutos = duracao.toMinutesPart();
-        return String.format("%d h %dm", horas, minutos);
-    }
-
-    // Minutos totais
-    public long getDuracaoFilme() {
-        return duracao.toMinutes();
-    }
-}
-
-// Disponibilidade
-class disponivel {
-    private int disponibilidade;
-    private titulo tituloFilme;
-
-    public disponivel(int disponibilidade, titulo tituloFilme) {
-        this.disponibilidade = disponibilidade;
-        this.tituloFilme = tituloFilme;
-    }
-
-    // Verificação se há copias
-    public boolean verificacaoDisponibilidade() {
-        return disponibilidade > 0;
-    }
-
-    // Exibição
-    public void exibir() {
-        if (verificacaoDisponibilidade()) {
-            System.out.println("O filme " + tituloFilme.getNomeFilme() +
-                    " está disponivel.\n Total de copias: " + disponibilidade);
+    // Metodo para reproduzir o filme
+    public void reproduzir() {
+        if (disponivel) {
+            System.out.println("Reproduzindo o filme: " + titulo);
         } else {
-            System.out.println("O filme " + tituloFilme.getNomeFilme() +
-                    " está indisponivel.");
+            System.out.println("O filme não está disponível no catálogo.");
         }
     }
-}
 
-
-// Classe main
-public class filme {
-    public static void main(String[] args) {
-        Scanner filme = new Scanner(System.in);
-
-        titulo tituloFilme = new titulo();
-        getDescricao descricaoFilme = new getDescricao();
-        genero generoFilme = new genero();
-
-        System.out.println("Digite o nome do filme: ");
-        tituloFilme.setNomeFilme(filme.nextLine());
-
-        System.out.println("Digite a duracao do filme (em minutos): ");
-        int minutos = filme.nextInt();
-        filme.nextLine();
-
-        duracao duracaoFilme = new duracao(minutos);
-
-        System.out.println("Digite o genero: ");
-        generoFilme.adicicaoGenero(filme.nextLine());
-
-        System.out.println("Digite uma descrição: ");
-        descricaoFilme.setDescricao(filme.nextLine());
-
-        System.out.println("Digite quantidade de copias: ");
-        int copias = filme.nextInt();
-
-        disponivel disponivelFilme = new disponivel(copias, tituloFilme);
-
-        // Exibição para o usuario
-        System.out.println("\n--Dados do Filme--");
-        System.out.println("Titulo: " + tituloFilme.getNomeFilme());
-        System.out.println("Descrição: " + descricaoFilme.getDescricao());
-        System.out.println("Genero(s): " + generoFilme.getGeneros());
-        System.out.println("Duração: " + duracaoFilme.getDuracaoFilmeFormatada());
-
-        disponivelFilme.exibir();
+    // Metodo para exibir detalhes
+    public void exibirDetalhes() {
+        System.out.println("\n--- Detalhes do Filme ---");
+        System.out.println("Título: " + titulo);
+        System.out.println("Gênero: " + genero);
+        System.out.println("Duração: " + duracao + " minutos");
+        System.out.println("Ano de lançamento: " + anoLancamento);
+        System.out.println("Disponível: " + (disponivel ? "Sim" : "Não"));
     }
 }
 
+// Classe principal (main)
+public class filme {
+
+    public static void main(String[] args) {
+
+        Scanner entrada = new Scanner(System.in);
+
+        // Entrada de dados
+        System.out.print("Digite o título do filme: ");
+        String titulo = entrada.nextLine();
+
+        System.out.print("Digite o gênero do filme: ");
+        String genero = entrada.nextLine();
+
+        System.out.print("Digite a duração do filme (em minutos): ");
+        int duracao = entrada.nextInt();
+
+        System.out.print("Digite o ano de lançamento: ");
+        int ano = entrada.nextInt();
+
+        System.out.print("O filme está disponível? (true/false): ");
+        boolean disponivel = entrada.nextBoolean();
+
+        // Criação do objeto Filme
+        Filme filme = new Filme(titulo, genero, duracao, ano, disponivel);
+
+        // Exibição
+        filme.exibirDetalhes();
+        filme.reproduzir();
+
+        entrada.close();
+    }
+}
