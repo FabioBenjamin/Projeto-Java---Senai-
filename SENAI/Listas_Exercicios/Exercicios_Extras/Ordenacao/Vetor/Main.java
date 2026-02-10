@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 // Metodos
+
 // MergeSort
 class MergeSoft {
 
@@ -11,6 +12,46 @@ class MergeSoft {
             int medio = (esquerda + direita) / 2;
             sort(array, esquerda, medio);
             sort(array, medio + 1, direita);
+            merge(array, esquerda, medio, direita);
+        }
+    }
+
+    private void merge(int[] array, int esquerda, int medio, int direita) {
+        int num1 = medio - esquerda + 1;
+        int num2 = direita - medio;
+
+        int[] esquerd = new int[num1];
+        int[] direit = new int[num2];
+
+        for(int i = 0 ; i < num1 ; i++)
+            esquerd[i] = array[esquerda + i];
+
+        for(int j = 0 ; j <num2 ; j++)
+            direit[j] = array[medio + 1 + j];
+
+        int valor1 = 0, valor2 = 0, k = esquerda;
+
+        while(valor1 < num1 && valor2 < num2) {
+            if (esquerd[valor1] <= direit[valor2]) {
+                array[k] = esquerd[valor1];
+                valor1++;
+
+            } else {
+                array[k] = direit[valor2];
+                valor2++;
+            }
+            k++;
+        }
+        while (valor1 < num1) {
+            array[k] = esquerd[valor1];
+            valor1++;
+            k++;
+        }
+
+        while (valor2 < num2) {
+            array[k] = direit[valor2];
+            valor2++;
+            k++;
         }
     }
 }
@@ -19,10 +60,10 @@ class MergeSoft {
 class QuickSort {
 
     // Metodo principal de ordenação do array
-    public void sort(int[] array, int alto, int baixo) {
+    public void sort(int[] array, int baixo, int alto) {
         if (baixo < alto) {
             // Frequencia na lista
-            int frequencia = partition(array, alto, baixo);
+            int frequencia = partition(array, baixo, alto);
 
             // Ordenação antes e depois da participação
             sort(array, baixo, frequencia - 1);
@@ -32,9 +73,9 @@ class QuickSort {
 
     // Metodo partition para o array
 
-    private int partition(int[] array, int alto, int baixo) {
+    private int partition(int[] array, int baixo, int alto) {
         int ultimo = array[alto]; // Pega o ultima elemento do array
-        int menor = array[baixo - 1]; // O menor elemento do array
+        int menor = baixo - 1; // O menor elemento do array
 
         for (int valor1 = baixo; valor1 < alto; valor1++) {
             if (array[valor1] <= ultimo) {
@@ -42,8 +83,8 @@ class QuickSort {
 
                 // Troca de elementos na array
                 int temp = array[menor];
-                array[menor] = array[ultimo];
-                array[menor] = temp;
+                array[menor] = array[valor1];
+                array[valor1] = temp;
             }
         }
 
