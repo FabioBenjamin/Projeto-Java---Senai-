@@ -1,3 +1,5 @@
+// Classes (Não usando no exercicio, mas serve)
+
 package Lista_Exercicio08;
 
 import java.time.Duration;
@@ -139,3 +141,4 @@ public class filme {
         disponivelFilme.exibir();
     }
 }
+
