@@ -96,14 +96,14 @@ public class bancario {
                 "Conta", "Título", "Agência", "Tipo", "Saldo");
         System.out.println("");
 
-        System.out.printf("| %-15d | %-6s | %-7d | %-4s | %-8.2f |\n",
+        System.out.printf("| %-15d | %-6s | %-6d | %-4s | %-8f |\n",
                 contaUser.getnumero(),
                 contaUser.gettitulo(),
                 contaUser.getagencia(),
                 contaUser.gettipoConta(),
                 contaUser.getsaldo());
 
-        System.out.println("-----------------------------------------------");
+        System.out.println("");
 
         contaUser.deposito(200);
         contaUser.saque(1500); // Teste de limite por operação
@@ -113,4 +113,5 @@ public class bancario {
 
     }
 }
+
 
