@@ -175,7 +175,7 @@ public class numComplexo {
 
             numerosComplexo numeroDigitado = new numerosComplexo(real, imaginario);
 
-            // se for o primeiro número, ele vira o resultado inicial
+            // O primeiro número, ele vira o resultado inicial
             if (resultado == null) {
                 resultado = numeroDigitado;
             } else {
@@ -209,4 +209,5 @@ public class numComplexo {
         usuario.close();
 
     }
+
 }
