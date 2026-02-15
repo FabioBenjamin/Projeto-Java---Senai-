@@ -7,7 +7,7 @@ Bem-vindo ao repositório do curso de Programação Java oferecido pelo Senai Ro
 O curso tem como objetivo te ensinar a desenvolver sistemas usando Java, cobrindo desde os fundamentos de programação até conceitos avançados de Orientação a Objetos e desenvolvimento de interfaces gráficas. Ao final, você será capaz de criar suas próprias aplicações em Java e trabalhar com banco de dados.
 
 # Tecnologias Utilizadas
-* Linguagem: Java
+* Linguagem principal: Java
 * IDE: IntelliJ IDEA, Eclipse
 * Frameworks: JavaFX (para interfaces gráficas), Spring (para aplicações web)
 * Banco de Dados: MySQL, SQLite
