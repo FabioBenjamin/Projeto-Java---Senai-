@@ -12,3 +12,6 @@ O curso tem como objetivo te ensinar a desenvolver sistemas usando Java, cobrind
 * Frameworks: JavaFX (para interfaces gráficas), Spring (para aplicações web)
 * Banco de Dados: MySQL, SQLite
 * Controle de Versão: Git e GitHub
+
+# Projetos desenvolvidos 
+* Calculadora
