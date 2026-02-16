@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="sytle.css">
+</head>
+<body>
+
+<div class="calculadora">
+    <input type="text" id="display" class="display" placeholder="DINGO BENJAMIN">
+
+    <div class="botoes">
+        <button onclick="addValor('7')">7</button>
+        <button onclick="addValor('8')">8</button>
+        <button onclick="addValor('9')">9</button>
+        <button onclick="addValor('/')">÷</button>
+
+        <button onclick="addValor('4')">4</button>
+        <button onclick="addValor('5')">5</button>
+        <button onclick="addValor('6')">6</button>
+        <button onclick="addValor('*')">×</button>
+
+        <button onclick="addValor('1')">1</button>
+        <button onclick="addValor('2')">2</button>
+        <button onclick="addValor('3')">3</button>
+        <button onclick="addValor('-')">−</button>
+
+        <button onclick="addValor('0')">0</button>
+        <button onclick="addValor('.')">.</button>
+        <button onclick="limpar()">C</button>
+        <button onclick="addValor('+')">+</button>
+
+        <button class="igual" onclick="enviarCalculo()">=</button>
+    </div>
+
+    <div class="resultado" id="resultado"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
