@@ -14,4 +14,5 @@ O curso tem como objetivo te ensinar a desenvolver sistemas usando Java, cobrind
 * Controle de Versão: Git e GitHub
 
 # Projetos desenvolvidos 
-* Calculadora
+* Calculadora ✅
+* Sistema Bancario ⌛
