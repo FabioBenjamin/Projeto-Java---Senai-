@@ -1,3 +1,9 @@
+// Desafio matriz - 
+
+Pergunta 6 vezes ao usuário se ele gostaria de somar a matriz, 
+    se sim você guarda o valor e vai somando, senão você descarta e não soma.
+no fim voce mostra o resultado ao usuário.
+
 package Matriz;
 
 import java.util.Scanner;
@@ -46,3 +52,4 @@ public class matrizPula2 {
 
     }
 }
+
