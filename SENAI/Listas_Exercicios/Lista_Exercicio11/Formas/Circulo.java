@@ -4,9 +4,7 @@ public class Circulo extends Forma{
     private double raio;
     private double comprimento;
 
-    public Circulo(double raio) {
-        this.raio = raio;
-    }
+    // Construtor
     public Circulo(double raio, Cor cor) {
         super(cor);
         this.raio = raio;

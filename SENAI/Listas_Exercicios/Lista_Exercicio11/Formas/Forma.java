@@ -1,13 +1,13 @@
 package Lista_Exercicio11.Formas;
 
 public abstract class Forma {
-    private String cor;
+    private Cor cor;
 
-    public Forma(String cor){
+    public Forma(Cor cor){
         this.cor = cor;
     }
 
-    public String getCor() {
+    public Cor getCor() {
         return cor;
     }
 
