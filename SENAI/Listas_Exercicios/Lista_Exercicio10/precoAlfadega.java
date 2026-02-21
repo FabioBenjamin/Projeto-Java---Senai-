@@ -1,5 +1,3 @@
-.
-
 package Lista_Exercicio10;
 
 import java.time.LocalDate;
@@ -176,3 +174,4 @@ public class precoAlfadega {
     }
 
 }
+
