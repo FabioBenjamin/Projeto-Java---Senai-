@@ -1,18 +1,16 @@
-package com.bancario.operacoes;
+package com.models;
 
 public class saque extends operacao {
 
-    public saque(double valor, double saldo) {
-        super(valor, saldo);
+    public saque(double valor, Conta conta) {
+        super(valor, conta);
     }
 
+    @Override
     public void executar() {
 
-        if (valor > 0 && this.saldo >= valor) {
-            this.saldo -= valor;
-            System.out.println("Saque realizado com sucesso.");
-        } else {
-            System.out.println("Saldo insuficiente ou valor inválido.");
+        if (valor <= conta.getSaldo()) {
+            conta.setSaldo(conta.getSaldo() - valor);
         }
     }
 }

@@ -1,21 +1,17 @@
-package com.bancario.operacoes;
+package com.models;
 
-public class operacao {
+// Classe principal 
+public abstract class operacao {
 
     protected double valor;
-    protected static double saldo = 0;
+    protected Conta conta;
 
     // Construtor
-    public operacao(double valor, double saldo) {
+    public operacao(double valor, Conta conta) {
         this.valor = valor;
-        this.saldo = saldo;
+        this.conta = conta;
     }
 
-    public static double getSaldo() {
-        return saldo;
-    }
+    public abstract void executar();
 
-    public double getValor() {
-        return valor;
-    }
 }

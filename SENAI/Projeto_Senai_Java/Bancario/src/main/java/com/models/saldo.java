@@ -1,16 +1,16 @@
-package com.bancario.operacoes;
+package com.models;
 
 public class saldo extends operacao {
 
-    public saldo(double valor, double saldo) {
-        super(valor, saldo);
+    public saldo(Conta conta) {
+        super(0, conta);
     }
 
-    public void verificacao(){
+    @Override
+    public void executar(){
 
-        System.out.println("Saldo atual - " + this.saldo);
+        System.out.println("Saldo atual - " + conta.getSaldo());
 
     }
-
 }
 
