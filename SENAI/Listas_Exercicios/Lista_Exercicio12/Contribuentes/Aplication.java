@@ -18,8 +18,11 @@ public class Aplication {
         // Empresa
         int funcionarios;
 
+
         System.out.println("Digite o número de contribuintes: ");
         contador = user.nextInt();
+
+        arya[] contri = new arya[contador];
 
         for (int valor = 0; valor < contador; valor++) {
 
@@ -33,32 +36,37 @@ public class Aplication {
             rendaAnual = user.nextDouble();
 
             // Caso seja individual
-            if (escolha.equalsIgnoreCase("i")){
+            if (escolha.equalsIgnoreCase("i")) {
 
                 System.out.println("Gastos com saúde: ");
                 gastoSaude = user.nextDouble();
 
+                arya[valor] = new individuo(nome, rendaAnual, gastoSaude);
+
             }
+            // Caso seka empresa
             else if (escolha.equalsIgnoreCase("e")) {
 
                 System.out.println("Número de funcionários: ");
                 funcionarios = user.nextInt();
+
+                arya[valor] = new empresa(nome, rendaAnual, funcionarios);
+
             }
 
             System.out.printf("%-15s %-10s %-15s %-15s%n",
-                    "Tipo", "Cor", "Área", "Perímetro");
+                    "Tipo", "nome", "renda Anual", "Gasto com saúde");
 
-            for (Forma formatos : formas) {
+            for (Contribuente contribuente : contri) {
 
-                String tipo = formatos.getClass().getSimpleName();
+                String tipo = contribuente.getClass().getSimpleName();
 
                 System.out.printf("%-15s %-10s %-15.2f %-15.2f%n",
                         tipo,
-                        formatos.getCor(),
-                        formatos.area(),
-                        formatos.perimetro());
+                        contribuinte.nome,
+                        contribuinte.rendaAnual,
+                        contribuinte.calculoImposto());
             }
-
         }
     }
 }
