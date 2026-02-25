@@ -7,8 +7,9 @@ public class deposito extends operacao {
     }
 
     @Override
-    public void executar() {
+    public void executar(double valor, Conta conta) {
         conta.setSaldo(conta.getSaldo() + valor);{
     }
     }
 }
+
