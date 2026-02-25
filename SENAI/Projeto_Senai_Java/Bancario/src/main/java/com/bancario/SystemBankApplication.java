@@ -15,6 +15,8 @@ public class SystemBankApplication extends Application {
                 getClass().getResource("/telaIntrodutoria.fxml")
         );
 
+        Conta conta = new Conta(00.00);
+
         // Carregar tela inicial 
         Scene scene = new Scene(loader.load());
 
@@ -27,3 +29,4 @@ public class SystemBankApplication extends Application {
         launch(args);
     }
 }
+
