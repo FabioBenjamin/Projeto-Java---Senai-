@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+     <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bancario.Controller.TelaOperacionalController">
+
+    <children>
+
+        <VBox alignment="CENTER"
+              spacing="20"
+              layoutX="150"
+              layoutY="100">
+
+            <Label text="Consulta de Saldo"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+
+            <Label fx:id="Saldo"
+                   text="Saldo: R$ 0.00"
+                   style="-fx-font-size: 18px;" />
+
+            <Button text="Atualizar Saldo"
+                    onAction="#ExibirSaldo"
+                    prefWidth="200"/>
+
+            <Button text="Voltar"
+                    onAction="#telasInicias"
+                    prefWidth="200"/>
+
+        </VBox>
+
+    </children>
+</AnchorPane>       fx:controller="com.bancario.Controller.TelaOperacionalController"
+            prefHeight="400.0" prefWidth="600.0">
+
+</AnchorPane>
