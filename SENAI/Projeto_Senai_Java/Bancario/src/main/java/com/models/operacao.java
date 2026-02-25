@@ -12,6 +12,7 @@ public abstract class operacao {
         this.conta = conta;
     }
 
-    public abstract void executar();
+    public abstract void executar(double valor, Conta conta);
+
 
 }
