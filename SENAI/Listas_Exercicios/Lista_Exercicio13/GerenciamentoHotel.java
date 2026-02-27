@@ -2,30 +2,73 @@ package Lista_Exercicio13;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
-import javax.swing.text.DateFormatter;
-
 public class GerenciamentoHotel {
+
     public static void main(String[] args) {
-    Scanner user = new Scanner(System.in);
 
-    int numeroQuarto;
-    String entrada;
-    String saida; 
+        Scanner user = new Scanner(System.in);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-    System.out.println("Digite o número do seu quarto: ");
-    numeroQuarto = user.nextInt();
+        System.out.print("Número do quarto: ");
+        int numeroQuarto = user.nextInt();
+        user.nextLine(); // limpa buffer
 
-    System.out.println("Data de entrada no hotel (dd/MM/aaaa): ");
-    entrada = user.nextLine();
+        System.out.print("Data de entrada (dd/MM/aaaa): ");
+        String entradaData1 = user.nextLine();
 
-    System.out.println("Data de saída (dd/MM/aaaa): ");
-    saida = user.nextLine();
+        System.out.print("Data de saída (dd/MM/aaaa): ");
+        String saidaData1 = user.nextLine();
 
-    DateFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate entrada = LocalDate.parse(entradaData1, formatter);
+        LocalDate saida = LocalDate.parse(saidaData1, formatter);
 
-    LocalDate data = LocalDate.parse(entrada, formatter);
+        LocalDate hoje = LocalDate.now();
 
+        // Validação de erros
+        if (entrada.isBefore(hoje) || saida.isBefore(hoje)) {
+            System.out.println("Erro: Datas devem ser futuras.");
+            return;
+        }
+
+        if (saida.isAfter(entrada)) {
+            System.out.println("Erro: Data de saída deve ser posterior à entrada.");
+            return;
+        }
+
+        long dias = ChronoUnit.DAYS.between(entrada, saida);
+
+        System.out.println("\nReserva: Quarto " + numeroQuarto + ", entrada: " + entrada.format(formatter) + ", saída: " + saida.format(formatter) + ", " + dias + " noites");
+
+        // Atualização na reserva da pessoa
+        System.out.println("\nAtualizar reserva");
+
+        System.out.print("Nova data de entrada (dd/MM/aaaa): ");
+        entradaData1 = user.nextLine();
+
+        System.out.print("Nova data de saída (dd/MM/aaaa): ");
+        saidaData1 = user.nextLine();
+
+        entrada = LocalDate.parse(entradaData1, formatter);
+        saida = LocalDate.parse(saidaData1, formatter);
+
+        // Revalidação
+        if (entrada.isBefore(hoje) || saida.isBefore(hoje)) {
+            System.out.println("Erro: Datas devem ser futuras.");
+            return;
+        }
+
+        if (saida.isAfter(entrada)) {
+            System.out.println("Erro: Data de saída deve ser posterior à entrada.");
+            return;
+        }
+
+        dias = ChronoUnit.DAYS.between(entrada, saida);
+
+        System.out.println("\nReserva Atualizada: Quarto " + numeroQuarto + ", entrada: " + entrada.format(formatter) + ", saída: " + saida.format(formatter) + ", " + dias + " noites");
+
+        user.close();
     }
 }

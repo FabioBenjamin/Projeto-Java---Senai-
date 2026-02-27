@@ -1,4 +1,4 @@
-package Lista_Exercicio12.Contribuentes;
+package Contribuentes;
 
 import java.util.Scanner;
 
@@ -22,7 +22,7 @@ public class Aplication {
         System.out.println("Digite o número de contribuintes: ");
         contador = user.nextInt();
 
-        arya[] contri = new arya[contador];
+        Contribuente[] contri = new Contribuente[contador];
 
         for (int valor = 0; valor < contador; valor++) {
 
@@ -38,35 +38,34 @@ public class Aplication {
             // Caso seja individual
             if (escolha.equalsIgnoreCase("i")) {
 
-                System.out.println("Gastos com saúde: ");
+                System.out.print("Gastos com saúde: ");
                 gastoSaude = user.nextDouble();
 
-                arya[valor] = new individuo(nome, rendaAnual, gastoSaude);
-
+                contri[valor] = new Individual(nome, rendaAnual, gastoSaude);
             }
-            // Caso seka empresa
-            else if (escolha.equalsIgnoreCase("e")) {
+            // Se for empresa
+            else {
 
-                System.out.println("Número de funcionários: ");
+                System.out.print("Número de funcionários: ");
                 funcionarios = user.nextInt();
 
-                arya[valor] = new empresa(nome, rendaAnual, funcionarios);
-
-            }
-
-            System.out.printf("%-15s %-10s %-15s %-15s%n",
-                    "Tipo", "nome", "renda Anual", "Gasto com saúde");
-
-            for (Contribuente contribuente : contri) {
-
-                String tipo = contribuente.getClass().getSimpleName();
-
-                System.out.printf("%-15s %-10s %-15.2f %-15.2f%n",
-                        tipo,
-                        contribuinte.nome,
-                        contribuinte.rendaAnual,
-                        contribuinte.calculoImposto());
+                contri[valor] = new Empresa(funcionarios, nome, rendaAnual);
             }
         }
+
+        // Exibição dos impostos
+        System.out.println("\nIMPOSTOS PAGOS:");
+
+        for (Contribuente contribuente : contri) {
+
+            System.out.println(
+                    contribuente.getNome()
+                    + " - R$ "
+                    + String.format("%.2f", contribuente.calculoImposto())
+            );
+        }
+
+        user.close();
     }
 }
+

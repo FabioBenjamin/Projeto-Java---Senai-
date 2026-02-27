@@ -1,4 +1,5 @@
-package Lista_Exercicio14;
+
+package Lista_Exercicio14.src;
 
 import java.io.File;
 import java.util.Scanner;
@@ -10,6 +11,10 @@ public class LeituraNotas {
         int maiorNota = Integer.MIN_VALUE;
         String alunoMaiorNota = "";
 
+        // Media
+        int quantidadeAlunos = 0;
+        int SomaNotas = 0;
+
 
         // Leitura do arquivo
         File arquivo = new File("src/arquivos/notas.txt");
@@ -20,7 +25,11 @@ public class LeituraNotas {
 
             int nota = Integer.parseInt(linha[1]);
             String nome = String.valueOf(linha[0]);
-            int media = Integer.parseInt(linha[1]);
+
+            // Contagem de alunos para media
+            quantidadeAlunos++;
+            SomaNotas += nota; // Soma as notas
+
 
             // Verifica os alunos que reprovaram
             if (nota < notaCorte) {
@@ -38,13 +47,14 @@ public class LeituraNotas {
                 alunoMaiorNota = nome; // Armazena o aluno com a maior nota
             }
 
-            // Media de todas as notas
-            if (media <= nota) {
-                media += nota;
-            }
+            scanner.close();
+
+            // Calcula média
+            double media = (double) SomaNotas / quantidadeAlunos;
+
+            // Imprime o aluno com o maior nota
+            System.out.println("\nA maior nota é do aluno " + alunoMaiorNota + " com a nota " + maiorNota);
+            System.out.println("A media foi " + media);
         }
-        // Imprime o aluno com o maior nota
-        System.out.println("\nA maior nota é do aluno " + alunoMaiorNota + " com a nota " + maiorNota);
-        System.out.println("A media foi " + media);
     }
 }
