@@ -27,3 +27,9 @@ O curso tem como objetivo te ensinar a desenvolver sistemas usando Java, cobrind
   <div align="center">
   <img width="500" height="400" alt="Image" src="https://github.com/user-attachments/assets/b73fa523-c494-4afa-942e-502f37a73f3a" />
   </div>
+
+  <div align="center">TELA OPERACIONAL</div>
+  <div align="center">
+  <img width="500" height="400" alt="Image" src="https://github.com/user-attachments/assets/8d03d95f-f490-4ac0-9575-fe198daa55d6" />
+  </div>
+
