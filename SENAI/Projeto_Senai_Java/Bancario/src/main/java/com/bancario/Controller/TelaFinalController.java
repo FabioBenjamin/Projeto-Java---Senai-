@@ -1,12 +1,15 @@
 package com.bancario.Controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.event.ActionEvent;
 
-public class TelaFinalController {
 
+public class TelaFinalController extends TelaInicialController {
+
+    // Caso o usuário escolha encerrar o programa
     @FXML
-    private 
-}
+    private void FinalizarPrograma() {
+        Platform.exit(); // Fecha o JavaFX
+    }
+}}
+
