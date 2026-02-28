@@ -22,3 +22,8 @@ O curso tem como objetivo te ensinar a desenvolver sistemas usando Java, cobrind
 * Calculadora
 
 * Sistema Bancario
+
+  <div align="center">TELA INICIAL</div>
+  <div align="center">
+  <img width="500" height="400" alt="Image" src="https://github.com/user-attachments/assets/b73fa523-c494-4afa-942e-502f37a73f3a" />
+  </div>
