@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bancario.Controller.TelaOperacionalController"
+            style="-fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298);">
+
+    <children>
+
+        <VBox alignment="CENTER"
+              spacing="20"
+              layoutX="150"
+              layoutY="60"
+              style="-fx-background-color: white;
+                     -fx-padding: 30;
+                     -fx-background-radius: 15;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 15, 0, 0, 5);">
+
+            <Label text="Extrato"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1e3c72;" />
+
+            <!-- Área de texto mostrando o extrato -->
+            <TextArea fx:id="txtExtrato"
+                      editable="false"
+                      prefHeight="300"
+                      prefWidth="500"
+                      style="-fx-font-size: 16px; -fx-text-fill: #333;" />
+
+            <!-- Botão voltar para o menu operacional -->
+            <Button text="Voltar"
+                    onAction="#abrirSaldo"
+                    prefWidth="300"
+                    style="-fx-background-color: #1e3c72; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 10;" />
+
+        </VBox>
+
+    </children>
+</AnchorPane>

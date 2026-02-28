@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bancario.Controller.TelaOperacionalController">
+
+    <children>
+        <VBox spacing="20"
+              alignment="CENTER"
+              layoutX="150"
+              layoutY="60"
+              style="-fx-background-color: white;
+                     -fx-padding: 40;
+                     -fx-background-radius: 20;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 20, 0, 0, 10);">
+
+            <Label text="Menu Operacional"
+                   style="-fx-font-size: 24px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #1e3c72;"/>
+
+            <Button text="Depósito"
+                    prefWidth="300"
+                    styleClass="main-button"
+                    onAction="#abrirDeposito"
+                    style="-fx-background-color: #1e3c72; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+
+            <Button text="Saque"
+                    prefWidth="300"
+                    styleClass="main-button"
+                    onAction="#abrirSaque"
+                    style="-fx-background-color: #1e3c72; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+
+            <Button text="Ver Saldo"
+                    prefWidth="300"
+                    styleClass="main-button"
+                    onAction="#abrirSaldo"
+                    style="-fx-background-color: #1e3c72; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+
+            <Button text="Ver Extrato"
+                    prefWidth="300"
+                    styleClass="main-button"
+                    onAction="#abrirExtrato"
+                    style="-fx-background-color: #1e3c72; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+
+
+            <Button text="Sair"
+                    prefWidth="300"
+                    styleClass="main-button"
+                    onAction="#abrirConclusao"
+                    style="-fx-background-color: #1e3c72; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+
+        </VBox>
+    </children>
+</AnchorPane>

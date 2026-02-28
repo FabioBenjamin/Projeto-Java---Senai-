@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bancario.Controller.TelaOperacionalController"
+            style="-fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298);">
+
+    <children>
+
+        <VBox alignment="CENTER"
+              spacing="15.0"
+              layoutX="150.0"
+              layoutY="80.0"
+              style="-fx-background-color: white;
+                     -fx-padding: 30;
+                     -fx-background-radius: 15;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 15, 0, 0, 5);">
+
+            <!-- Título -->
+            <Label text="Depósito"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+            <!-- Mensagem invisível por padrão -->
+            <Label fx:id="lblMensagem"
+                   text="Transição realizada"
+                   style="-fx-text-fill: #bf1d1d; -fx-font-weight: bold; -fx-font-size: 16px;"
+                   visible="false"/>
+
+            <!-- Campo valor -->
+            <TextField fx:id="Valor"
+                       promptText="Manda nao"
+                       prefWidth="250"/>
+
+
+            <!-- Botão confirmar -->
+            <Button text="Confirmar Depósito"
+                    onAction="#depositar"
+                    prefWidth="300"
+                    style="-fx-background-color: #1e3c72; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+
+
+            <Button text="Voltar"
+                    onAction="#telasInicias"
+                    prefWidth="300"
+                    style="-fx-background-color: #1e3c72; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;"/>
+
+
+        </VBox>
+
+    </children>
+</AnchorPane>
