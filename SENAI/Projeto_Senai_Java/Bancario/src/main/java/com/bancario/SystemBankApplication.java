@@ -14,8 +14,7 @@ public class SystemBankApplication extends Application {
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/telaIntrodutoria.fxml")
         );
-
-        Conta conta = new Conta(00.00);
+        Parent root = loader.load();
 
         // Carregar tela inicial 
         Scene scene = new Scene(loader.load());
@@ -29,4 +28,5 @@ public class SystemBankApplication extends Application {
         launch(args);
     }
 }
+
 
