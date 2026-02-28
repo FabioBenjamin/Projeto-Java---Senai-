@@ -13,11 +13,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 
-
-public class TelaOperacionalController extends TelaInicialController{
+public class TelaOperacionalController extends TelaInicialController {
 
     @FXML
     private TextField Valor;
@@ -25,54 +26,113 @@ public class TelaOperacionalController extends TelaInicialController{
     @FXML
     private Label Saldo;
 
-    public void setConta(Conta conta) {
-        this.conta = conta;
-    }
+    @FXML
+    private TextArea txtExtrato;
 
-    // Trocador de telas
-    private Conta conta;
+    @FXML
+    private Label lblMensagem;
+
+    private static Conta conta = new Conta(00.00);
+
+    private static ArrayList<String> valores = new ArrayList<>();
+
+    // Inicialização automática da tela
+    @FXML
+    public void initialize() {
+        atualizarSaldo();
+
+        if (txtExtrato != null) {
+            txtExtrato.setText(gerarExtrato()); // CORRIGIDO AQUI
+        }
+    }
 
     // Deposito
     @FXML
-    private void depositar() {
-        double valor = Double.parseDouble(Valor.getText());
+    protected void depositar() {
 
-        // Operação de deposito
-        deposito dep = new deposito(valor, conta);
+        try {
+            double valor = Double.parseDouble(Valor.getText());
 
-        atualizarSaldo();
-        Valor.clear();
+            if (valor <= 0) {
+
+                System.out.println("Maior que 0 o valor seu cabeca");
+                return;
+            }
+
+            conta.depositar(valor);
+            valores.add("Depositado: R$ " + valor);
+
+            atualizarSaldo();
+            Valor.clear();
+
+            lblMensagem.setVisible(true);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Valor inválido");
+        }
     }
 
     // Saque
     @FXML
-    private void sacar() {
-        double valor = Double.parseDouble(Valor.getText());
+    protected void sacar() {
+        try {
+            double valor = Double.parseDouble(Valor.getText());
 
-        // Operação de saque
-        new saque(valor, conta);
+            if (valor <= 0) {
+                System.out.println("Maior que 0 o valor seu cabeca");
+                return;
+            }
 
-        atualizarSaldo();
-        Valor.clear();
+            if (valor > conta.getSaldo()) {
+                System.out.println("Saldo insuficiente");
+                return;
+            }
+
+            conta.sacar(valor);
+            valores.add("Sacado: R$ " + valor);
+
+            atualizarSaldo();
+            Valor.clear();
+
+            lblMensagem.setVisible(true);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Valor inválido!");
+        }
     }
 
+    // Saldo e Extrato
     @FXML
-    private void saldo() {
-        double valor = Double.parseDouble(Valor.getText());
-
-        // Operação de saldo
+    protected void ExibirSaldo() {
         atualizarSaldo();
+
+        if (txtExtrato != null) {
+            txtExtrato.setText(gerarExtrato());
+        }
     }
 
-    // Saldo
-    @FXML
-    private void ExibirSaldo() {
-        atualizarSaldo();
+    // Gerar Extrato
+    private String gerarExtrato() {
+        StringBuilder extrato = new StringBuilder();
+        extrato.append("--- EXTRATO ---\n");
+
+        for (String operacao : valores) {
+            extrato.append(operacao).append("\n");
+        }
+
+        extrato.append("---\nSaldo Atual: R$ ")
+                .append(conta.getSaldo());
+
+        return extrato.toString();
     }
 
     // Atualização do saldo da conta pós operação
     private void atualizarSaldo() {
-        Saldo.setText("Saldo: R$ " + conta.getSaldo());
+
+        // Verificação e atualização do saldo
+        if (Saldo != null) {
+            Saldo.setText("Saldo: R$ " + conta.getSaldo());
+        }
     }
 
     // Metodo de implementação
@@ -107,5 +167,29 @@ public class TelaOperacionalController extends TelaInicialController{
     @FXML
     private void abrirSaldo(ActionEvent event) throws IOException {
         trocarTela(event, "/views/telaSaldo.fxml");
+    }
+
+    // EXTRATO
+    @FXML
+    private void abrirExtrato(ActionEvent event) throws IOException {
+        trocarTela(event, "/views/Extrato.fxml");
+    }
+
+    // SAIR
+    @FXML
+    private void abrirConclusao(ActionEvent event) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/views/telaConclusao.fxml")
+        );
+
+        Parent root = loader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource())
+                .getScene()
+                .getWindow();
+
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 }
