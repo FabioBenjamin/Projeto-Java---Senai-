@@ -1,0 +1,101 @@
+/* Ativação de verificação de chaves estrangeiras */
+PRAGMA foreign_keys = ON;
+
+/* TABELAS SEM FK */
+
+CREATE TABLE loja (
+    id_Loja INTEGER PRIMARY KEY NOT NULL,
+    Nome_Loja TEXT NOT NULL UNIQUE,
+    Telefone TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE Cliente (
+    id_Cliente INTEGER PRIMARY KEY NOT NULL,
+    nome_Cliente TEXT NOT NULL,
+    Gmail TEXT NOT NULL,
+    Data_Nascimento DATE NOT NULL,
+    Sexo TEXT NOT NULL
+);
+
+CREATE TABLE Vendedor (
+    id_Vendedor INTEGER PRIMARY KEY NOT NULL,
+    Nome_Vendedor TEXT NOT NULL,
+    Sexo TEXT NOT NULL,
+    Data_Nascimento DATE NOT NULL,
+    Data_Contrato DATE NOT NULL UNIQUE
+);
+
+CREATE TABLE Periodo (
+    id_Periodo INTEGER PRIMARY KEY NOT NULL,
+    Data_Periodo DATE NOT NULL,
+    Dia_Semana INTEGER NOT NULL,
+    Mes_Periodo TEXT NOT NULL,
+    Ano_Periodo INTEGER NOT NULL 
+);
+
+CREATE TABLE Estado (
+    id_Estado INTEGER PRIMARY KEY NOT NULL,
+    Nome TEXT NOT NULL
+);
+
+CREATE TABLE Categoria (
+    id_Categoria INTEGER PRIMARY KEY NOT NULL,
+    Nome TEXT NOT NULL,
+    Descricao TEXT
+);
+
+/* TABELAS COM FK */
+
+CREATE TABLE Produto (
+    id_Produto INTEGER PRIMARY KEY NOT NULL,
+    id_Categoria INTEGER,
+    Nome_Produto TEXT NOT NULL,
+    Descricao TEXT,
+    Valor_Custo NUMERIC NOT NULL,
+    Valor_Venda NUMERIC NOT NULL,
+    
+    /* CHAVE ESTRANGEIRA (FK)*/
+    FOREIGN KEY (id_Categoria) REFERENCES Categoria(id_Categoria)
+);
+
+CREATE TABLE Cidade (
+    id_Cidade INTEGER PRIMARY KEY NOT NULL,
+    id_Estado INTEGER,
+    Nome_Cidade TEXT NOT NULL,
+    
+    /* CHAVE ESTRANGEIRA (FK)*/
+    FOREIGN KEY (id_Estado) REFERENCES Estado(id_Estado)
+);
+
+CREATE TABLE Venda ( 
+    id_Venda INTEGER PRIMARY KEY NOT NULL,
+    id_Cliente INTEGER,
+    id_Cidade INTEGER,
+    id_Periodo INTEGER,
+    id_Vendedor INTEGER,
+    id_Loja INTEGER,
+    Data_Venda DATE NOT NULL,
+    Hora_Venda TIME NOT NULL,
+    Total_Venda NUMERIC NOT NULL,
+    Metodo_Pagamento TEXT NOT NULL,
+    
+    /* CHAVE ESTRANGEIRA (FK)*/
+    FOREIGN KEY (id_Cliente) REFERENCES Cliente(id_Cliente),
+    FOREIGN KEY (id_Cidade) REFERENCES Cidade(id_Cidade),
+    FOREIGN KEY (id_Periodo) REFERENCES Periodo(id_Periodo),
+    FOREIGN KEY (id_Vendedor) REFERENCES Vendedor(id_Vendedor),
+    FOREIGN KEY (id_Loja) REFERENCES loja(id_Loja)
+);
+
+CREATE TABLE Venda_Produto (
+    id_VendaProduto INTEGER PRIMARY KEY NOT NULL,
+    id_Produto INTEGER,
+    id_Venda INTEGER,
+    Quantidade INTEGER NOT NULL,
+    Preco_Unitario NUMERIC NOT NULL,
+    Desconto NUMERIC NOT NULL,
+    
+    /* CHAVE ESTRANGEIRA (FK)*/
+    FOREIGN KEY (id_Produto) REFERENCES Produto(id_Produto),
+    FOREIGN KEY (id_Venda) REFERENCES Venda(id_Venda)
+);
