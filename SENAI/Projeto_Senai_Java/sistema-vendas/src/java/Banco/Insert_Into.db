@@ -1,0 +1,29 @@
+INSERT INTO Loja (Nome_Loja, Telefone)
+VALUES (? , ?);
+
+INSERT INTO Cliente (nome_Cliente, Gmail, Data_Nascimento, Sexo)
+VALUES (?, ?, ?, ?);
+
+INSERT INTO Vendedor (Nome_Vendedor, Sexo, Data_Nascimento, Data_Contrato ) 
+VALUES (?, ?, ?, ?);
+
+INSERT INTO Periodo (Data_Periodo, Dia_Semana, Mes_Periodo, Ano_Periodo)
+VALUES (?, ?, ?, ?);
+
+INSERT INTO Estado (Nome)
+VALUES (?);
+
+INSERT INTO Categoria (Nome, Descricao)
+VALUES (?, ?);
+
+INSERT INTO Produto (id_Categoria, Nome_Produto, Descricao, Valor_Custo, Valor_Venda)
+VALUES (?, ?, ?, ?, ?);
+
+INSERT INTO Cidade (id_Estado, Nome_Cidade)
+VALUES (?, ?);
+
+INSERT INTO Venda (id_Cliente, id_Cidade, id_Periodo, id_Vendedor, id_Loja, Data_Venda, Hora_Venda, Total_Venda, Metodo_Pagamento) 
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+INSERT INTO Venda_Produto (id_Produto, id_Venda, Quantidade, Preco_Unitario, Desconto) 
+VALUES (?, ?, ?, ?, ?)
