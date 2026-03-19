@@ -1,0 +1,39 @@
+-- Venda Produto --
+DELETE FROM Venda_Produto
+WHERE id_VendaProduto = ?;
+
+-- Venda
+DELETE FROM Venda
+WHERE id_Venda = ?;
+
+-- Produto
+DELETE FROM Produto
+WHERE id_Produto = ?;
+
+-- Categoria
+DELETE FROM Categoria 
+WHERE id_Categoria = ?;
+
+-- Cliente
+DELETE FROM Cliente
+WHERE id_Cliente = ?;
+
+-- Vendedor
+DELETE FROM Vendedor
+WHERE id_Vendedor = ?;
+
+-- Loja
+DELETE FROM Loja
+WHERE id_Loja = ?;
+
+-- Periodo
+DELETE FROM Periodo
+WHERE id_Periodo = ?;
+
+-- Cidade
+DELETE FROM Cidade
+WHERE id_Cidade = ?;
+
+-- Estado
+DELETE FROM Estado
+WHERE id_Estado = ?;

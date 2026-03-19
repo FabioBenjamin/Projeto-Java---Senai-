@@ -1,0 +1,19 @@
+SELECT * FROM Categoria;
+
+SELECT * FROM Cidade;
+
+SELECT * FROM Cliente;
+
+SELECT * FROM Estado;
+
+SELECT * FROM Loja;
+
+SELECT * FROM Periodo;
+
+SELECT * FROM Produto;
+
+SELECT * FROM Venda;
+
+SELECT * FROM Venda_Produto;
+
+SELECT * FROM Vendedor;
