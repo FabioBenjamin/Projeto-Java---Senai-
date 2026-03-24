@@ -15,8 +15,8 @@ O curso tem como objetivo te ensinar a desenvolver sistemas usando Java, cobrind
 
 # Projetos desenvolvidos 
 * Calculadora ✅
-* Sistema Bancario ✅
-* Sistema de Vendas ⏳
+* Sistema Bancario ✅ <!-- odeio o javafx, bagui de velho -->
+* Sistema de Vendas ✅ <!-- ARRUMAR AS FUNCIONALIDADES -->
 
 # Imagem dos projetos
 
@@ -39,3 +39,9 @@ O curso tem como objetivo te ensinar a desenvolver sistemas usando Java, cobrind
   <img width="500" height="400" alt="Image" src="https://github.com/user-attachments/assets/8d03d95f-f490-4ac0-9575-fe198daa55d6" />
   </div>
 
+* Sistema de vendas
+
+  <div align="center">TELA INICIAL</div>
+  <div align="center">
+  <img width="500" height="400" alt="Image" src="https://github.com/user-attachments/assets/ec9d30d2-7f92-4531-8bb1-a2283257a373" />
+  </div>
