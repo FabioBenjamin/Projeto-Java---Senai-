@@ -16,7 +16,7 @@ O curso tem como objetivo te ensinar a desenvolver sistemas usando Java, cobrind
 # Projetos desenvolvidos 
 * Calculadora ✅
 * Sistema Bancario ✅ <!-- odeio o javafx, bagui de velho -->
-* Sistema de Vendas ✅ <!-- ARRUMAR AS FUNCIONALIDADES -->
+* Sistema de Vendas ✅ - Apenas três páginas funcional (home, cliente e vendedor), por conta de divergencias com o tempo <!-- ARRUMAR AS FUNCIONALIDADES -->
 
 # Imagem dos projetos
 
