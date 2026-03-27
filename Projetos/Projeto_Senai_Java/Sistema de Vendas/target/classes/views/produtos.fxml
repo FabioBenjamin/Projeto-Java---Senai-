@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.SistemaVendas.Controller.ProdutoController">
+
+    <top>
+        <Label text="Produtos" style="-fx-font-size: 20px;" />
+    </top>
+
+    <center>
+        <TableView fx:id="tblProduto">
+            <columns>
+                <TableColumn text="Nome"/>
+                <TableColumn text="Descrição"/>
+                <TableColumn text="Valor Venda"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER">
+            <Button text="Atualizar" onAction="#atualizar"/>
+            <Button text="Excluir" onAction="#excluir"/>
+        </HBox>
+    </bottom>
+</BorderPane>

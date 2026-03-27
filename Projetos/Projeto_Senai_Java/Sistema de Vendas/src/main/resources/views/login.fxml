@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400" prefWidth="600"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.SistemaVendas.Controller.LoginController">
+
+    <VBox alignment="CENTER" spacing="15"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <Label text="Login" style="-fx-font-size: 24; -fx-font-weight: bold;" />
+
+        <TextField promptText="Usuário"/>
+        <PasswordField promptText="Senha"/>
+
+        <Button text="Entrar"/>
+
+    </VBox>
+
+</AnchorPane>

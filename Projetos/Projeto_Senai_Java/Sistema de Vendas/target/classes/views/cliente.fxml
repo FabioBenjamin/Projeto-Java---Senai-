@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.SistemaVendas.Controller.ClienteController">
+
+    <!-- TÍTULO -->
+    <top>
+        <Label text="Clientes" style="-fx-font-size: 20px;" />
+    </top>
+
+    <!-- TABELA -->
+    <center>
+        <TableView fx:id="tblCliente">
+            <columns>
+                <TableColumn fx:id="colNome" text="Nome"/>
+                <TableColumn fx:id="colNascimento" text="Nascimento"/>
+                <TableColumn fx:id="colSexo" text="Sexo"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- FORMULÁRIO -->
+    <right>
+        <GridPane hgap="10" vgap="10" style="-fx-padding: 10;">
+
+            <Label text="Nome" GridPane.rowIndex="0"/>
+            <TextField fx:id="tfNome" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Nascimento" GridPane.rowIndex="1"/>
+            <DatePicker fx:id="DtNascimento" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Sexo" GridPane.rowIndex="2"/>
+            <ComboBox fx:id="cbSexo" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Button text="Salvar" onAction="#salvar" GridPane.rowIndex="3"/>
+            <Button text="Editar" onAction="#editar" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Button text="Excluir" onAction="#excluir" GridPane.rowIndex="4"/>
+            <Button text="Fechar" onAction="#fechar" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        </GridPane>
+    </right>
+</BorderPane>

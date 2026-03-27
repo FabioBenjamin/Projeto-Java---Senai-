@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="750" prefWidth="1200"
+            style="-fx-background-color: #f5f6fa;"
+            xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.SistemaVendas.Controller.PainelController">
+
+    <!-- SIDEBAR -->
+    <VBox prefWidth="260" spacing="20"
+          style="-fx-background-color: #2f3640;"
+          AnchorPane.bottomAnchor="0"
+          AnchorPane.topAnchor="0">
+
+        <children>
+            <Label text="Sistema Vendas"
+                   style="-fx-text-fill: white; -fx-font-weight: bold;">
+                <font>
+                    <Font size="22"/>
+                </font>
+                <padding>
+                    <Insets left="50" top="15"/>
+                </padding>
+            </Label>
+
+            <VBox spacing="10">
+                <children>
+                    <Button fx:id="btnDashboard" text="Dashboard" onAction="#abrirDashboard"/>
+                    <Button fx:id="btnClientes" text="Clientes" onAction="#abrirClientes"/>
+                    <Button fx:id="btnVendedores" text="Vendedores" onAction="#abrirVendedores"/>
+                    <Button fx:id="btnRelatorios" text="Relatorios" onAction="#abrirRelatorios"/>
+                    <Button fx:id="btnConfiguracoes" text="Configurações" onAction="#abrirConfiguracoes"/>
+
+                </children>
+            </VBox>
+        </children>
+    </VBox>
+
+    <!-- TOPBAR -->
+    <HBox layoutX="260" prefHeight="70" prefWidth="940"
+          style="-fx-background-color: white; -fx-border-color: #dcdde1;"
+          AnchorPane.topAnchor="0">
+
+        <children>
+            <VBox alignment="CENTER">
+                <Label style="-fx-font-size: 22; -fx-font-weight: bold;"/>
+                <Label fx:id="lblUsuario"
+                       text="Bem-vindo, Usuário"
+                       style="-fx-font-size: 16;"/>
+            </VBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+                <Button text="Tema"
+                        style="-fx-background-color: #57606f; -fx-text-fill: white;"/>
+                <Separator orientation="VERTICAL" prefHeight="25"/>
+                <Button text="Sair"
+                        style="-fx-background-color: #718093; -fx-text-fill: white;"/>
+            </HBox>
+        </children>
+    </HBox>
+
+    <!-- CONTEÚDO CENTRAL -->
+    <VBox layoutX="260" layoutY="90"
+          prefWidth="940" prefHeight="660"
+          spacing="25"
+          alignment="TOP_CENTER">
+
+        <!-- CARDS -->
+        <HBox spacing="30" alignment="CENTER">
+
+            <!-- CLIENTES -->
+            <VBox alignment="CENTER"
+                  prefWidth="220" prefHeight="130"
+                  style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #dcdde1; -fx-border-radius: 15;">
+                <Label text="Total Clientes"/>
+                <Label fx:id="lblTotalClientes"
+                       text="0"
+                       style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+            </VBox>
+
+            <!-- NOVOS HOJE -->
+            <VBox alignment="CENTER"
+                  prefWidth="220" prefHeight="130"
+                  style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #dcdde1; -fx-border-radius: 15;">
+                <Label text="Novos Hoje"/>
+                <Label fx:id="lblNovosHoje"
+                       text="0"
+                       style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+            </VBox>
+
+            <!-- VENDAS -->
+            <VBox alignment="CENTER"
+                  prefWidth="220" prefHeight="130"
+                  style="-fx-background-color: white; -fx-background-radius: 15; -fx-border-color: #dcdde1; -fx-border-radius: 15;">
+                <Label text="Total Vendas"/>
+                <Label fx:id="lblTotalVendas"
+                       text="0"
+                       style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+            </VBox>
+
+        </HBox>
+
+        <!-- GRÁFICO -->
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="Resumo do Sistema"
+                   style="-fx-font-size: 18; -fx-font-weight: bold;"/>
+            <PieChart fx:id="graficoClientes"
+                      prefHeight="300"
+                      prefWidth="500"/>
+        </VBox>
+
+        <!-- BOTÃO -->
+        <Button text="+ Novo Cliente"
+                prefWidth="220" prefHeight="50"
+                style="-fx-background-color: #0984e3; -fx-text-fill: white; -fx-font-size: 15; -fx-background-radius: 12;"
+                onAction="#abrirPainel"/>
+    </VBox>
+
+</AnchorPane>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.SistemaVendas.Controller.VendedorController"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <children>
+
+        <!-- FORMULÁRIO -->
+        <VBox spacing="15.0"
+              AnchorPane.topAnchor="20.0"
+              AnchorPane.leftAnchor="20.0">
+
+            <Label text="Cadastro de Vendedor"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+            <GridPane hgap="10" vgap="10">
+
+                <padding>
+                    <Insets top="10"/>
+                </padding>
+
+                <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtNome" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Sexo:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cbSexo" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Data Nascimento:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="dpNascimento" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Data Contrato:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="dpContrato" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            </GridPane>
+
+            <!-- BOTÕES -->
+            <HBox spacing="10">
+
+                <Button text="Salvar"
+                        onAction="#salvarVendedor"
+                        style="-fx-background-color: #64BD72; -fx-text-fill: white;" />
+
+                <Button text="Limpar"
+                        onAction="#limparCampos"
+                        style="-fx-background-color: #EBE300;" />
+
+                <Button text="Cancelar"
+                        onAction="#cancelar"
+                        style="-fx-background-color: #AA231C; -fx-text-fill: white;" />
+
+            </HBox>
+
+        </VBox>
+
+        <!-- TABELA -->
+        <TableView fx:id="tabela"
+                   AnchorPane.topAnchor="20.0"
+                   AnchorPane.rightAnchor="20.0"
+                   AnchorPane.leftAnchor="350.0"
+                   AnchorPane.bottomAnchor="20.0">
+
+            <columns>
+                <TableColumn fx:id="colunId" text="ID" prefWidth="60"/>
+                <TableColumn fx:id="colunNome" text="Nome" prefWidth="150"/>
+                <TableColumn fx:id="colunSexo" text="Sexo" prefWidth="100"/>
+                <TableColumn fx:id="colunNascimento" text="Nascimento" prefWidth="120"/>
+                <TableColumn fx:id="colunContrato" text="Contrato" prefWidth="120"/>
+            </columns>
+
+        </TableView>
+
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.SistemaVendas.Controller.VendaController">
+
+    <Label text="Venda" style="-fx-font-size: 20px;" />
+
+    <ComboBox fx:id="cbCliente" promptText="Selecione o Cliente"/>
+    <ComboBox fx:id="cbProduto" promptText="Selecione o Produto"/>
+
+    <TextField fx:id="tfQuantidade" promptText="Quantidade"/>
+
+    <Button text="Adicionar" onAction="#adicionarProduto"/>
+
+    <TableView fx:id="tblItens">
+        <columns>
+            <TableColumn text="Produto"/>
+            <TableColumn text="Qtd"/>
+            <TableColumn text="Preço"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="lblTotal" text="Total: R$ 0,00"/>
+
+    <Button text="Finalizar Venda" onAction="#finalizarVenda"/>
+
+</VBox>

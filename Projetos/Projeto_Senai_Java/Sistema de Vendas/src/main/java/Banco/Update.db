@@ -1,0 +1,59 @@
+-- Categoria --
+
+UPDATE Categoria
+SET Nome = ?, Descricao = ?
+WHERE id_Categoria = ?;
+
+-- Cidade -- 
+
+UPDATE Cidade
+SET Nome_Cidade = ?, id_Estado = ?
+WHERE id_Cidade = ?;
+
+-- Cliente --
+
+UPDATE Cliente
+SET nome_Cliente = ?, Email = ?, Data_Nascimento = ?, Sexo = ?
+WHERE id_Cliente = ?; 
+
+-- Estado -- 
+
+UPDATE Estado
+SET Nome = ?
+WHERE id_Estado = ?;
+
+-- Loja -- 
+
+UPDATE Loja
+SET Nome_Loja = ?, Telefone = ?
+WHERE id_Loja = ?;
+
+-- Periodo -- 
+
+UPDATE Periodo
+SET Data_Periodo = ?, Dia_Semana = ?, Mes_Periodo = ?, Ano_Periodo = ?
+WHERE id_Periodo = ?;
+
+-- Produto -- 
+
+UPDATE Produto
+SET id_Categoria = ?, Nome_Produto = ?, Descricao = ?, Valor_Custo = ?, Valor_Venda = ?
+WHERE id_Produto = ?;
+
+-- Venda -- 
+
+UPDATE Venda
+SET id_Cliente = ?, id_Cidade = ?, id_Periodo = ?, id_Vendedor = ?, id_Loja = ?, Data_Venda = ?, Hora_Venda = ?, Total_Venda = ?, Metodo_Pagamento = ?
+WHERE id_Venda = ?; 
+
+-- Venda Produto -- 
+
+UPDATE Venda_Produto
+SET id_Produto = ?, id_Venda = ?, Quantidade = ?, Preco_Unitario = ?, Desconto = ?
+WHERE id_VendaProduto = ?;
+
+-- Vendedor --
+
+UPDATE Vendedor
+SET Nome_Vendedor = ?, Sexo = ?, Data_Nascimento = ?, Data_Contrato = ?
+WHERE id_Vendedor = ?
